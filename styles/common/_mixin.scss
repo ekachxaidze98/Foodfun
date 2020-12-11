@@ -1,0 +1,32 @@
+@mixin center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@mixin mainText {
+    color: #777;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+@mixin title {
+    color: $secondary-color;
+    font-size: 36px;
+    font-weight: bold;
+
+    span {
+        color: $primary-color;
+        font-style: italic;
+    }
+}
