@@ -1,11 +1,11 @@
 .header-section {
-    background-image: url("../../img/banner-bg.jpg");
+    background-image: url("../img/banner-bg.jpg");
     height: max-content;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 
-    .menu-section {
+    .menu {
         padding: 20px 0;
 
         @media only screen and (max-width: 970px) {
@@ -56,6 +56,8 @@
                     font-size: 16px;
                     font-weight: 300;
                     padding: 20px 0;
+                    font-family: "Roboto", sans-serif;
+
                 }
 
                 h1 {
@@ -63,7 +65,6 @@
                     font-size: 60px;
                     font-weight: 700;
                     font-style: italic;
-                    font-family: 'Playfair Display', serif;
 
                     .change {
                         font-style: normal;
@@ -106,6 +107,7 @@
             .title {
                 width: 34%;
                 margin: 10px 0;
+                font-weight: bold;
 
                 @media only screen and (max-width: 970px) {
                     width: 55%;
@@ -130,6 +132,11 @@
 
 // menu
 .menu-section {
+    background-image: url("../img/food-bg.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+    padding: 50px 0;
+
     .items {
         @media only screen and (max-width: 970px) {
             padding: 0 20px;
@@ -173,17 +180,24 @@
 
         .menu-items {
             width: 100%;
-            @include flex();
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
 
 
             .card {
-                width: 31.5%;
+                width: 31%;
+                min-height: 450px;
                 background-color: #f9f9ff;
                 margin: 50px 0;
+                transition: all 0.5s ease-in;
+                overflow: hidden;
 
                 @media only screen and (max-width: 970px) {
-                    width: 25%;
-                    padding: 0 20px;
+                    width: 26%;
+
                 }
 
                 @media only screen and (max-width: 768px) {
@@ -194,14 +208,19 @@
                     width: 100%;
                 }
 
-                .card-img-top {
-                    width: 100%;
-                    height: 100%;
+                .img-container {
+                    overflow: hidden;
+
+                    .card-img-top {
+                        width: 100%;
+                        height: 100%;
+                        transition: all 0.5s ease-in;
+                    }
                 }
 
                 .card-body {
                     padding: 30px;
-                    background: #f9f9ff;
+
 
                     .card-title {
                         @include flex();
@@ -216,14 +235,37 @@
                             color: #ffb606;
                             font-size: 20px;
                             font-weight: bold;
+                            transition: all 0.5s ease-in;
                         }
                     }
 
                     p {
                         @include mainText();
                         padding: 35px 0;
+                        transition: all 0.5s ease-in;
                     }
                 }
+
+                &:hover {
+                    background-color: $primary-color;
+
+                    .card-img-top {
+                        transform: scale(1.2);
+                    }
+
+                    .card-body {
+                        .card-title {
+                            span {
+                                color: $secondary-color;
+                            }
+                        }
+
+                        p {
+                            color: $secondary-color;
+                        }
+                    }
+                }
+
             }
         }
     }
@@ -231,7 +273,7 @@
 
 // reserve 
 .resertvation-section {
-    background-image: url("../../img/reservation-bg.jpg");
+    background-image: url("../img/reservation-bg.jpg");
     height: max-content;
     background-size: cover;
     background-repeat: no-repeat;
@@ -243,10 +285,13 @@
         @include center();
 
         .item {
+            @include center();
+
             h1 {
                 color: $white-color;
                 font-size: 42px;
                 font-weight: 700;
+
             }
 
             span {
@@ -254,13 +299,15 @@
                 font-size: 24px;
                 font-weight: 400;
                 font-style: italic;
-                // margin: 30px 0;
+                font-family: "Roboto", sans-serif;
+                margin: 20px 0;
 
             }
 
             a {
                 @include center();
                 display: block;
+                width: 15%;
 
                 &:hover {
                     color: $primary-color;
@@ -390,7 +437,9 @@
 
 // testimonail
 .testimonial-section {
-    background-image: url("../../img/testimonial-bg.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)),
+        url("../img/testimonial-bg.jpg");
     height: max-content;
     background-size: cover;
     background-repeat: no-repeat;
@@ -398,23 +447,22 @@
     position: relative;
     width: 100%;
 
-    // .overlay {
-    //     position: absolute;
-    //     height: 100%;
-    //     width: 100%;
-    //     z-index: 2;
-    //     background-color: #11111469;
-    //     left: 0;
-    //     bottom: 0;
+    .overlay {
 
-    // }
+        height: 100%;
+        width: 100%;
+
+        background-color: #11111469;
+        left: 0;
+        bottom: 0;
+    }
 
     .relative {
         position: relative;
 
         .custumer-items {
             padding: 135px 0;
-           
+
             .title-container {
                 @include center();
 
@@ -438,17 +486,22 @@
                 width: 100%;
                 @include flex();
                 margin: 80px 0;
+
                 @media only screen and (max-width: 970px) {
                     @include center();
                     text-align: unset;
                 }
 
                 .item {
+                    background-image: url("../img/quote.png");
+                    background-repeat: no-repeat;
+                    background-position: top right;
                     width: 42%;
                     background-color: $white-color;
                     border-radius: 3px;
                     padding: 35px;
                     display: flex;
+
                     @media only screen and (max-width: 970px) {
                         width: 80%;
                         margin: 20px 0;
@@ -463,6 +516,7 @@
                             font-size: 20px;
                             font-weight: bold;
                             margin: 0 0 15px 0;
+                            transition: color 0.5s ease-in;
                         }
 
                         span {
@@ -478,13 +532,20 @@
                             margin: 15px 0;
                         }
                     }
+
+                    &:hover h5 {
+                        color: $primary-color;
+                    }
                 }
             }
         }
     }
 }
+
 // updates
 .update-section {
+    padding: 130px 0;
+
     .title-container {
         @include center();
 
@@ -498,39 +559,118 @@
             margin: 15px 0;
         }
     }
+
     .items {
         width: 100%;
         @include flex();
+
+        @media only screen and (max-width: 970px) {
+            justify-content: center;
+        }
+
         .card {
             width: 31.5%;
+            min-height: 525px;
             background-color: #f9f9ff;
             margin: 50px 0;
-                .card-img-top {
+            transition: all 0.5s ease-in;
+
+            @media only screen and (max-width: 970px) {
+                width: 25%;
+                margin: 0 20px;
+            }
+
+            @media only screen and (max-width: 768px) {
+                width: 60%;
+            }
+
+            .card-img-top {
                 width: 100%;
                 height: 100%;
-                .card-body {
-                    .card-top {
-                        display: flex;
-                        span {
-                            font-size: 14px;
-                            color: #777;
+            }
+
+            .card-body {
+                padding: 25px;
+                transition: all 0.5s ease-in;
+
+                .card-top {
+                    display: flex;
+                    margin: 15px 0;
+                    flex-wrap: wrap;
+
+                    span {
+                        font-size: 14px;
+                        color: #777;
+
+                        @media only screen and (max-width: 970px) {
+                            margin: 3px 0;
+                        }
+
+                        i {
+                            margin-right: 5px;
+
+                            @media only screen and (max-width: 970px) {
+                                margin: 3px 5px;
+                            }
                         }
                     }
-                  
+
+                    .user {
+                        margin-right: 46px;
+                    }
                 }
-    }
+
+                .card-bottom {
+
+                    h4 {
+                        color: $secondary-color;
+                        font-size: 20px;
+                        font-weight: 700;
+                        margin: 15px 0;
+                    }
+
+                    p {
+                        @include mainText();
+                    }
+
+                    a {
+                        text-decoration: none;
+                        color: $secondary-color;
+                        font-size: 14px;
+                        font-weight: bold;
+                        display: inline-block;
+                        margin: 30px 0;
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: $white-color;
+
+                .card-body {
+
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+
+                }
+
+            }
         }
     }
 }
+
 // book
 .booking-secton {
-    background-image: url("../../img/table-bg.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url("../img/table-bg.jpg");
     height: max-content;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     position: relative;
     width: 100%;
+    padding: 130px 0;
+
     .title-container {
         @include center();
 
@@ -549,26 +689,155 @@
             margin: 15px 0;
         }
     }
+
     .items {
         width: 100%;
         display: flex;
         justify-content: center;
+        margin: 20px 0;
+        flex-wrap: wrap;
+
         .item {
             position: relative;
-            .input {
-                padding: 20px;
-                outline: none;
+            margin: 0 12px;
+
+            @media only screen and (max-width: 768px) {
+                width: 80%;
             }
+
+            input {
+                padding: 18px 12px;
+                outline: none;
+                border-radius: 5px;
+                border: none;
+
+                @media only screen and (max-width: 768px) {
+                    width: 100%;
+                    margin: 20px 0;
+                }
+            }
+
             .icon {
                 background-color: transparent;
                 border: none;
                 color: #68635f;
                 cursor: pointer;
                 position: absolute;
-                top: 0px;
-                bottom: 0px;
-                right: 12px;
-                overflow: hidden;
+                top: 50%;
+                left: 22px;
+                transform: translate(-50%, -50%);
+
+            }
+        }
+    }
+
+    .btn-container {
+        @include center();
+
+        .primary-btn {
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+// footer
+.footer {
+    background-color: #131230;
+    padding: 130px 0;
+
+    .items {
+        @include flex();
+
+        @media only screen and (max-width: 970px) {
+            margin: 0 20px;
+        }
+
+        .item {
+            width: 31%;
+            height: 170px;
+
+            @media only screen and (max-width: 768px) {
+                width: 70%;
+                margin: 0 50px;
+            }
+
+            .title {
+                font-size: 20px;
+                color: $primary-color;
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+
+            .text {
+                @include mainText();
+            }
+
+            .contact {
+                display: flex;
+                margin: 10px 0;
+
+                p {
+                    @include mainText();
+                }
+
+                i {
+                    margin-right: 20px;
+                    color: #777;
+                }
+            }
+        }
+
+        .hours {
+            p {
+                @include mainText();
+                margin: 12px 0;
+            }
+
+        }
+    }
+}
+
+// copyright
+.copyright-section {
+    background-color: #0D0D27;
+    padding: 30px 0;
+    font-family: "Roboto", sans-serif;
+
+    .items {
+        width: 100%;
+        @include flex();
+
+        .copyright-item {
+            display: flex;
+            color: $white-color;
+            font-size: 14px;
+
+            @media only screen and (max-width: 768px) {
+                width: 70%;
+                margin: 20px;
+            }
+
+            a {
+                text-decoration: none;
+                color: #007bff;
+                transition: color 0.5s ease-in;
+
+                &:hover {
+                    color: #0056b3;
+                }
+
+            }
+
+            i {
+                margin: 0 12px;
+                cursor: pointer;
+                transition: color 0.5s ease-in;
+
+                &:hover {
+                    color: $primary-color;
+                }
             }
         }
     }
